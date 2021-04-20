@@ -1,7 +1,6 @@
-import React from 'react';
-import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import React from 'react'
+import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 import waterImg from '../assets/watering.png'
-import { Button } from '../components/button';
 import colors from '../styles/colors';
 
 export function Welcome() {
@@ -10,12 +9,16 @@ export function Welcome() {
             <Text style={styles.title}>
                 Gerencie suas plantas de forma fácil
              </Text>
-            <Image source={waterImg} style={styles.image} />
+            <Image source={waterImg} style={styles.image} resizeMode="contain" />
             <Text style={styles.subtitle}>
                 Não esqueça mais de regar suas plantas.
                 Nós cuidamos de lembrar você sempre que precisar.
              </Text>
-            <Button title={'Avançar'} />
+            <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+                <Text style={styles.buttonText}>
+                    >
+                </Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     },
     title: {
         fontSize: 32,
@@ -47,18 +50,18 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         marginBottom: 10,
         height: 56,
+        width: 56,
         textAlign: 'center',
-        paddingHorizontal: 30
     },
 
     image: {
-        width: 292,
-        height: 284
+        height: Dimensions.get('window').width * 0 * 7 // imagem responsiva
     },
     buttonText: {
         color: colors.white,
         fontSize: 24
-    }
+    },
+
 
 
 })
