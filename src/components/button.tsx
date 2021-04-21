@@ -1,38 +1,33 @@
-import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, TouchableOpacityProps } from 'react-native'
-import colors from '../styles/colors';
+import React from 'react'
+import { TouchableOpacity, StyleSheet, Text, TouchableOpacityProps } from 'react-native'
+import colors from '../styles/colors'
+import fonts from '../styles/fonts'
 
-
-
-interface ButtonProps extends TouchableOpacityProps{
+interface buttonsProps extends TouchableOpacityProps {
     title: string
-
 }
-
-export function Button({title} : ButtonProps) {
+export function Button({ title, ...rest }: buttonsProps) {
     return (
-        <TouchableOpacity style={styles.button} activeOpacity={0.8}>
-            <Text style={styles.buttonText}>
+        <TouchableOpacity style={styles.container} >
+            <Text style={styles.text} {...rest}>
                 {title}
-        </Text>
+            </Text>
         </TouchableOpacity>
     )
 }
 
-
 const styles = StyleSheet.create({
-    button: {
+    container: {
         backgroundColor: colors.green,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 16,
-        marginBottom: 10,
         height: 56,
-        textAlign: 'center',
-        paddingHorizontal: 30
+        borderRadius: 16,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    buttonText: {
+
+    text: {
+        fontSize: 16,
         color: colors.white,
-        fontSize: 24
+        fontFamily: fonts.heading,
     }
 })
