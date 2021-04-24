@@ -25,15 +25,13 @@ export function EnviromentButton({ title, active = false, ...rest }: EnviromentB
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.shape,
-        //paddingVertical: 7 ,
-        //paddingHorizontal:20,
+        backgroundColor: colors.shape,   
         height: 40,
         width: 76,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 12,
-        marginRight: 5,
+        marginHorizontal: 5,       
 
     },
     text: {
